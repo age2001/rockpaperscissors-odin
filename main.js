@@ -5,7 +5,7 @@ function getComputerChoice() {
 
 function gameRound(playerChoice, computerChoice) {
     let lowerPlayerChoice = toLowerCase(playerChoice);
-    
+
     if (lowerPlayerChoice === "rock") {
         if (computerChoice === "paper") return false;
         if (computerChoice === "scissors") return true;
@@ -21,5 +21,29 @@ function gameRound(playerChoice, computerChoice) {
     } else {
         alert("Choice input was invalid!");
         return null;
+    }
+}
+
+function game() {
+    let playerInput;
+    let gameConditionBool;
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        playerInput = prompt("Choose rock, paper, or scissors!");
+        gameConditionBool = gameRound(playerInput, getComputerChoice());
+        if (gameConditionBool === null) {
+            i--;
+        }
+        if (gameConditionBool) {
+            playerScore++;
+        } else {
+            computerScore++;
+        }
+    }
+    if (playerScore > computerScore) {
+        console.log("Congratulations you won!");
+    } else {
+        console.log("You lost! Better Luck next time...")
     }
 }
