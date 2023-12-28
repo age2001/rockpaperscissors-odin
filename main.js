@@ -4,7 +4,8 @@ function getComputerChoice() {
 }
 
 function gameRound(playerChoice, computerChoice) {
-    let lowerPlayerChoice = toLowerCase(playerChoice);
+    let lowerPlayerChoice = playerChoice.toLowerCase();
+    console.log("Player choice: " + playerChoice + " | Computer choice: " + computerChoice);
 
     if (lowerPlayerChoice === "rock") {
         if (computerChoice === "paper") return false;
@@ -34,16 +35,23 @@ function game() {
         gameConditionBool = gameRound(playerInput, getComputerChoice());
         if (gameConditionBool === null) {
             i--;
+            continue;
         }
         if (gameConditionBool) {
             playerScore++;
+            alert("You won this round!");
         } else {
             computerScore++;
+            alert("You lost this round...");
+        }
+        console.log("Score P|C: " + playerScore + " | " + computerScore);
+        if (playerScore === 3 || computerScore === 3) {
+            break;
         }
     }
     if (playerScore > computerScore) {
         console.log("Congratulations you won!");
     } else {
-        console.log("You lost! Better Luck next time...")
+        console.log("You lost! Better Luck next time...");
     }
 }
