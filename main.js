@@ -25,6 +25,14 @@ function gameRound(playerChoice, computerChoice) {
     }
 }
 
+let rockButton = document.getElementById("rock");
+let paperButton = document.getElementById("paper");
+let scissorsButton = document.getElementById("scissors");
+
+rockButton.addEventListener("click", gameRound("rock", getComputerChoice()));
+paperButton.addEventListener("click", gameRound("paper", getComputerChoice()));
+scissorsButton.addEventListener("click", gameRound("scissors", getComputerChoice()));
+
 function game() {
     let playerInput;
     let gameConditionBool;
