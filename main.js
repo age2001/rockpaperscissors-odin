@@ -25,13 +25,15 @@ function gameRound(playerChoice, computerChoice) {
     }
 }
 
-let rockButton = document.getElementById("rock");
-let paperButton = document.getElementById("paper");
-let scissorsButton = document.getElementById("scissors");
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
 
-rockButton.addEventListener("click", gameRound("rock", getComputerChoice()));
-paperButton.addEventListener("click", gameRound("paper", getComputerChoice()));
-scissorsButton.addEventListener("click", gameRound("scissors", getComputerChoice()));
+rockButton.addEventListener("click", () => {gameRound("rock", getComputerChoice());});
+paperButton.addEventListener("click", () => {gameRound("paper", getComputerChoice());});
+scissorsButton.addEventListener("click", () => {gameRound("scissors", getComputerChoice());});
+
+const mainDiv = document.querySelector("div");
 
 function game() {
     let playerInput;
